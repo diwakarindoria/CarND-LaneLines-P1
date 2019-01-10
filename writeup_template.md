@@ -31,7 +31,7 @@ My pipeline consisted of 5 below steps.
   4. Define the Hough transform parameters, get reason of interest masked image and apply Hough transformation with draw lines.
   5. Merge the original image with transformed image and get the final detected lined image.
 
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by calculating slope and get average values of coordinate points. After change, this function gives flexibility in drawing lines due to many calculations for getting stable and accurate thick linings of the road lane lines.
+In order to draw a single line on the left and right lanes, I modified the draw_lines() function by calculating slope and make coordinates lists of left and right lanes. Using these lists, we are finding minimum Y and maximum Y cordinates for both of lanes. These min & max coordinates further used to calculate average X for both of lanes using polyfit function and slope calculated results. After get all the required data to draw lines, we are passing values to cv2.line function to draw lane lines. This changed draw_lines() function gives flexibility in drawing lines more stable and better than default one.
 
 Original Image:
 [![Original Image](test_images/solidWhiteCurve.jpg)](test_images/solidWhiteCurve.jpg)
@@ -53,5 +53,5 @@ In heavy traffic conditions, there must be another logic to guide the vehicle fo
 
 ### 3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to get median of the block of lane line's length and compare this length with all detected lane line's or any white object's length. If this lenght is lesesr than average length, we can ignore this unwanted object.
+A possible improvement would be to get median of the list of lane lines block lengths. This averate length can be used to compare the length of all detected lane lines. During compare the lane line block lengths, If any block have more discrepancy in lenght, it can be consider as outer object from the lane line and can be ignored. This improvement can help to get more closer results.
 
