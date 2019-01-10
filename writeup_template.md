@@ -34,10 +34,10 @@ My pipeline consisted of 5 below steps.
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function by calculating slope and get average values of coordinate points. After change, this function gives flexibility in drawing lines due to many calculations for getting stable and accurate thick linings of the road lane lines.
 
 Original Image:
-![Original Image][test_images/solidWhiteCurve.jpg]
+[![Original Image](test_images/solidWhiteCurve.jpg)](test_images/solidWhiteCurve.jpg)
 
 Transformed Image after Detect Lane Lines:
-![Image after Lane Detected][test_images_output/solidWhiteCurve.jpg]
+[![Image after Lane Detected](test_images_output/solidWhiteCurve.jpg)](test_images_output/solidWhiteCurve.jpg)
 
 
 ### 2. Identify potential shortcomings with your current pipeline
